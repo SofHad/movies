@@ -38,7 +38,7 @@ class MoviesService
      *
      * @return string
      */
-    private function getYoutubeLink(string $code): string
+    private function formatYoutubeUrl(string $code): string
     {
         return "https://www.youtube.com/embed/{$code}";
     }
@@ -121,7 +121,7 @@ class MoviesService
                 return [
                     "movie_id"             => $movieId,
                     "movie_key"            => $videoMovieData['results'][0]['key'],
-                    "movie_streaming_path" => $this->getYoutubeLink(
+                    "movie_streaming_path" => $this->formatYoutubeUrl(
                         $videoMovieData['results'][0]['key']
                     ),
                 ];
@@ -157,7 +157,7 @@ class MoviesService
                 return [
                     "movie_id"             => $movieID,
                     "movie_key"            => $videoMovieData['results'][0]['key'],
-                    "movie_streaming_path" => $this->getYoutubeLink(
+                    "movie_streaming_path" => $this->formatYoutubeUrl(
                         $videoMovieData['results'][0]['key']
                     ),
                 ];
